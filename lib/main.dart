@@ -1,19 +1,17 @@
 import 'package:ember_quest_flame/ember_quest.dart';
 import 'package:ember_quest_flame/overlays/game_over_menu.dart';
 import 'package:ember_quest_flame/overlays/main_menu.dart';
+import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setPreferredOrientations(
-    [
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ],
-  );
+  Flame.device.fullScreen();
+
+  Flame.device.setLandscape();
   runApp(
     GameWidget<EmberQuestGame>.controlled(
       overlayBuilderMap: {
